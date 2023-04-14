@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-12 xl:mx-24 lg:mx-24 md:mx-24 space-y-6 h-screen">
+  <div class="mx-12 xl:mx-24 lg:mx-24 md:mx-24 space-y-6">
     <div class="space-y-1 grid place-items-center xl:place-items-start xl:space-y-2 lg:place-items-start lg:space-y-2 md:place-items-start md:space-y-2">
         <h1 class="text-softblue font-bold font-quicksand
         text-3xl xl:text-5xl lg:text-5xl md:text-4xl">SKILLS</h1>

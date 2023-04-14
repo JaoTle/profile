@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex flex-col justify-center gap-12">
+  <div class="h-full flex flex-col self-center gap-8">
     <div class="flex gap-8">
         <img v-for="item in line1" :key="item" :src="item" class="w-[5%] object-contain">
     </div>
