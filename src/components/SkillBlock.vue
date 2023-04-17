@@ -1,13 +1,13 @@
 <template>
   <div class="h-full flex flex-col self-center gap-8">
-    <div class="flex gap-8">
-        <img v-for="item in line1" :key="item" :src="item" class="w-[5%] object-contain">
+    <div class="flex gap-3 xl:gap-8 lg:gap-8 md:gap-8">
+        <img v-for="item in line1" :key="item" :src="item" class="w-6 xl:w-10 lg:w-10 md:w-10 object-contain">
     </div>
-    <div class="flex gap-8">
-        <img v-for="item in line2" :key="item" :src="item" class="w-[5%] object-contain">
+    <div class="flex flex-wrap gap-3 xl:gap-8 lg:gap-8 md:gap-8">
+        <img v-for="item in line2" :key="item" :src="item" class="w-6 xl:w-10 lg:w-10 md:w-10 object-contain">
     </div>
-    <div class="flex gap-8">
-        <img v-for="item in line3" :key="item" :src="item" class="w-[5%] object-contain">
+    <div class="flex gap-3 xl:gap-8 lg:gap-8 md:gap-8">
+        <img v-for="item in line3" :key="item" :src="item" class="w-6 xl:w-10 lg:w-10 md:w-10 object-contain">
     </div>
   </div>
 </template>

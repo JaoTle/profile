@@ -1,5 +1,5 @@
 <template>
-  <Disclosure as="nav" class="bg-navblue" v-slot="{ open }">
+  <Disclosure as="nav" class="bg-navblue sticky top-0">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -12,14 +12,14 @@
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex flex-shrink-0 items-center">
-            <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
-            <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
+            <img class="block h-8 w-auto lg:hidden"  :src="logo"  />
+            <img class="hidden h-8 w-auto lg:block"  :src="logo"  />
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4 font-comfortaa text-lg">  
               <span v-for="item in navigation" :key="item.name" :class="[item.current ? 'text-blurblue' : 'text-softblue hover:text-blurblue', 'px-3 space-x-2']" :aria-current="item.current ? 'page' : undefined">
                 <font-awesome-icon :icon="item.icon"/>
-                <a :href="item.href">{{ item.name }}</a>
+                <a href="#" v-scroll-to="item.href" @click="stateTab(item)" >{{ item.name }}</a>
               </span>
                 
             </div>
@@ -30,7 +30,7 @@
 
     <DisclosurePanel class="sm:hidden">
       <div class="space-y-1 px-2 pb-3 pt-2 font-comfortaa text-base">
-        <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'text-blurblue' : 'text-softblue hover:text-blurblue', 'block rounded-md px-3 py-2 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">
+        <DisclosureButton v-for="item in navigation" :key="item.name" as="a" href="#" v-scroll-to="item.href" @click="stateTab(item)" :class="[item.current ? 'text-blurblue' : 'text-softblue hover:text-blurblue', 'block rounded-md px-3 py-2 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">
           <font-awesome-icon :icon="item.icon"/>
           {{ item.name }}
       </DisclosureButton>
@@ -51,15 +51,25 @@ export default{
   },
   data(){
     return {
-      navigation
+      navigation,
+      logo : require('@/assets/images/LG.png')
+    }
+  },
+  methods :{
+    stateTab(item){
+      navigation[0].current = false
+      navigation[1].current = false
+      navigation[2].current = false
+      navigation[3].current = false
+      item.current = true;
     }
   }
 }
 const navigation = [
-  { name: 'About', href: '#', current: true ,icon : ['far', 'face-smile-wink']},
-  { name: 'Skills', href: '#', current: false ,icon : ['fas', 'bars-progress']},
-  { name: 'Experience', href: '#', current: false ,icon :['fas', 'angles-up']},
-  { name: 'Contact', href: '#', current: false,icon : ['far', 'address-book'] },
+  { name: 'About', href: '#info', current: true ,icon : ['far', 'face-smile-wink']},
+  { name: 'Skills', href: '#skill', current: false ,icon : ['fas', 'bars-progress']},
+  { name: 'Experience', href: '#exp', current: false ,icon :['fas', 'angles-up']},
+  { name: 'Contact', href: '#contact', current: false,icon : ['far', 'address-book'] },
   { name: 'Life Style', href: '#', current: false,icon : ['fas', 'icons'] },
 ]
 </script>
